@@ -5,7 +5,9 @@ defmodule PunkteWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", PunkteWeb do
+  scope "/", PunkteWeb do
     pipe_through :api
+
+    get "/", UsersController, :index
   end
 end
