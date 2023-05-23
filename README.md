@@ -1,5 +1,15 @@
 # Punkte
 
+## Overview
+This app has a single endpoint that returns users. It's easily accessible by executing the following command:
+
+# GET /
+curl http://localhost:4000
+
+```json
+{"timestamp":"2022-05-17T18:12:25.334970Z","users":[{"id":11501,"points":87},{"id":11973,"points":85}]}
+```
+
 ## Installing
 
 This project uses Elixir 1.14.5, so in order to run it one would have to install it and there are many ways to do that for more details check some options like:

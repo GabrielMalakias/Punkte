@@ -6,6 +6,6 @@ defmodule PunkteWeb.UsersController do
   end
 
   def serialize() do
-    [%{users: [%{id: 1, points: 10}], timestamp: "2020-07-30 17:09:33"}]
+    [%{users: [%{id: 1, points: 10},%{id: 123, points: 10}], timestamp: "2020-07-30 17:09:33"}]
   end
 end
