@@ -18,7 +18,7 @@ defmodule Punkte.Application do
       PunkteWeb.Endpoint
       # Start a worker by calling: Punkte.Worker.start_link(arg)
       # {Punkte.Worker, arg}
-    ]
+    ] ++ workers()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -31,6 +31,11 @@ defmodule Punkte.Application do
   @impl true
   def config_change(changed, _new, removed) do
     PunkteWeb.Endpoint.config_change(changed, removed)
+
     :ok
+  end
+
+  def workers() do
+    Application.get_env(:punkte, :workers, [])
   end
 end
