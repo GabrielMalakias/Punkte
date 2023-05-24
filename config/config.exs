@@ -9,7 +9,6 @@ import Config
 
 config :punkte,
   ecto_repos: [Punkte.Repo],
-  generators: [binary_id: true],
   workers: [],
   points_interval: 0..100,
   interval: :timer.minutes(1)

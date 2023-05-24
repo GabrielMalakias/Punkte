@@ -13,8 +13,8 @@
 
 unless Punkte.Repo.exists?("users") do
   Punkte.Repo.query!("""
-  INSERT INTO users (id, points, inserted_at, updated_at)
-  SELECT gen_random_uuid(), 0, LOCALTIMESTAMP, LOCALTIMESTAMP FROM generate_series(1, 1000000)
+  INSERT INTO users (points, inserted_at, updated_at)
+  SELECT 0, LOCALTIMESTAMP, LOCALTIMESTAMP FROM generate_series(1, 1000000)
   """)
 end
 
