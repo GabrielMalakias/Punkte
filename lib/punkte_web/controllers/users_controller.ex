@@ -2,10 +2,14 @@ defmodule PunkteWeb.UsersController do
   use PunkteWeb, :controller
 
   def index(conn, _) do
-    json(conn, serialize())
+    json(conn, serialize(Punkte.User.Server.fetch))
   end
 
-  def serialize() do
-    [%{users: [%{id: 1, points: 10},%{id: 123, points: 10}], timestamp: "2020-07-30 17:09:33"}]
+  defp serialize({:ok, [timestamp, users]}) do
+    %{users: users, timestamp: timestamp}
+  end
+
+  defp serialize({_, _}) do
+    %{users: [], timestamp: nil, error_msg: "Failed to fetch users"}
   end
 end

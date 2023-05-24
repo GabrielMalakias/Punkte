@@ -20,6 +20,9 @@ config :punkte, PunkteWeb.Endpoint,
   secret_key_base: "M37WcPfx6jpQcWUYAdSUrVrVbWKfT3evp5IeQgOoZlK3JvoEC0Zi7C+okrk7wE/w",
   server: false
 
+config :punkte,
+  points_interval: 50..60
+
 # Print only warnings and errors during test
 config :logger, level: :warning
 

@@ -9,7 +9,10 @@ import Config
 
 config :punkte,
   ecto_repos: [Punkte.Repo],
-  generators: [binary_id: true]
+  generators: [binary_id: true],
+  workers: [],
+  points_interval: 0..100,
+  interval: :timer.minutes(1)
 
 # Configures the endpoint
 config :punkte, PunkteWeb.Endpoint,
