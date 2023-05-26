@@ -1,4 +1,7 @@
 defmodule Punkte.User do
+  @moduledoc """
+  Represents the user, not actually being used, it was automatically generated
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

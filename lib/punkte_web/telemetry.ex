@@ -1,4 +1,8 @@
 defmodule PunkteWeb.Telemetry do
+  @moduledoc """
+  Added automatically
+  """
+
   use Supervisor
   import Telemetry.Metrics
 

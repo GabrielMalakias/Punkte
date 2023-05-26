@@ -1,4 +1,15 @@
 defmodule Punkte.User.Server do
+  @moduledoc """
+  This module is a GenServer which interacts with the commands
+  to evaluate and fetch the users
+
+  To fetch one should use the following method
+
+  {:ok, [timestamp, users]} = Punkte.User.Server.fetch()
+
+  Points are evaluated automatically every minute using Process.send_after
+  """
+
   use GenServer
 
   require Logger
