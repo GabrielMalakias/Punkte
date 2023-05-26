@@ -21,7 +21,8 @@ config :punkte, PunkteWeb.Endpoint,
   server: false
 
 config :punkte,
-  points_interval: 50..60
+  points_interval: 50..60,
+  interval: 500
 
 # Print only warnings and errors during test
 config :logger, level: :warning
