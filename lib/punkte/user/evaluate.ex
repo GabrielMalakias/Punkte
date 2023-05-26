@@ -1,4 +1,8 @@
 defmodule Punkte.User.Evaluate do
+  @moduledoc """
+  Evaluates the users' points executing a fragment calling the RANDOM function in the DB
+  """
+
   import Ecto.Query
   require Logger
   alias Punkte.Repo

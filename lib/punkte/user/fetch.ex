@@ -1,4 +1,8 @@
 defmodule Punkte.User.Fetch do
+  @moduledoc """
+  Fetches and returns all the users which have a higher number of points than the bottom_limit
+  """
+
   import Ecto.Query, only: [from: 2]
 
   alias Punkte.Repo
