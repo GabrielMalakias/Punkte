@@ -40,4 +40,41 @@ curl localhost:4000
 -> {"timestamp":"2023-05-26T09:19:09.913420Z","users":[{"id":1,"points":74},{"id":2,"points":45}]}
 ```
 
-That's all for now :)
+## Considerations
+
+Command Query Resposibility Segregation (CQRS) is a design which aims to clearly have distinctions between read and modifying data, I feel that this concept matches the challenge pretty well so I created "Commands" for each action possible, the app only needs the `Punkte.User.Evaluate` and `Punkte.User.Fetch` to implement the scenario proposed.
+
+In regards of the app structure it currently has the following:
+
+```
+.
+├── punkte
+│   ├── application.ex
+│   ├── repo.ex
+│   ├── user
+│   │   ├── evaluate.ex
+│   │   ├── fetch.ex
+│   │   └── server.ex
+│   └── user.ex
+├── punkte.ex
+├── punkte_web
+│   ├── controllers
+│   │   ├── error_json.ex
+│   │   └── users_controller.ex
+│   ├── endpoint.ex
+│   ├── gettext.ex
+│   ├── router.ex
+│   └── telemetry.ex
+└── punkte_web.ex
+
+4 directories, 14 files
+```
+
+All the important files are either prefixed with `user` or within its respective folder. I did not add the `Punkte.User.Server` call within the `User context` because I think that was not necessary given the current scenario, for me that would just add an extra layer without any major improvement.
+
+The `fill_factor` was set to 70%, this number could be even lower to increase the number of `hot updates` but I did not see as necessary right now.
+
+Every single request goes through the `GenServer` one could wonder what would happen in case the DB start taking some time to respond, I think the `process mailbox` could overflow at some point but I also didnt want to focus on solving this right now.
+
+
+That's all for now, thanks for reviewing! :)
